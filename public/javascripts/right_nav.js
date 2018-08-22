@@ -1,34 +1,15 @@
-class Nav {
+class RightNav {
   constructor() {
-    this.leftContent = {};
-    this.rightContent = {};
-    this.bottomContent = {};
+    this.indexItems = {};
   }
 
-  updateLeft(data) {
-    if (this.leftContent[data.country]) {
-      this.leftContent[data.country]++;
-    } else {
-      this.leftContent[data.country] = 0;
-    }
-    const leftNavElement = document.getElementById('left-nav');
-    const indexItem = document.createElement('div');
-    const country = document.createElement('div');
-    const count = document.createElement('div');
-    indexItem.className = 'country-item';
-    country.className = 'country';
-    count.className = 'count';
-    indexItem.appendChild(country);
-    indexItem.appendChild(count);
-    leftNavElement.appendChild(indexItem);
-  }
-
-  updateRight(data) {
-    this.rightContent[data.id] = {
+  updateIndex(data) {
+    this.indexItems[data.id] = {
       text: data.text,
       name: data.screen_name,
       image: data.profile_image_url
     };
+
     const rightNavElement = document.getElementById('right-nav');
     if (rightNavElement.childNodes.length === 5) {
       rightNavElement.removeChild(rightNavElement.childNodes[0]);
@@ -50,9 +31,6 @@ class Nav {
     indexItem.appendChild(text);
     rightNavElement.appendChild(indexItem);
   }
-
-  updateBottom(data) {
-  }
 }
 
-window.nav = new Nav();
+window.rightNav = new RightNav();

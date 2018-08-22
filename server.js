@@ -53,7 +53,7 @@ io.sockets.on('connection', function(socket) {
         socket.emit('filteredData', filterData(data));
         if (count === 5) {
           stream.destroy();
-          process.exit(0);
+          // process.exit(0);
         }
       }
     });

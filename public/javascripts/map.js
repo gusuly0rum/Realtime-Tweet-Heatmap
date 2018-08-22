@@ -4,9 +4,15 @@ class Map {
   }
 
   initialize() {
+    const mapOptions = {
+      zoom: 2.2,
+      draggable: false,
+      styles: window.style,
+      disableDefaultUI: true,
+      gestureHandling: 'none',
+      center: { lat: 20, lng: 150 }
+    };
     const mapElement = document.getElementById('map');
-    const centerCoordinates = { lat: 20.397, lng: 130.644 };
-    const mapOptions = { center: centerCoordinates, zoom: 2.2, styles: window.style, disableDefaultUI: true };
     this.map = new window.google.maps.Map(mapElement, mapOptions);
   }
 

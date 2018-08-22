@@ -1,0 +1,23 @@
+#left-nav {
+  z-index: 1;
+  width: 250px;
+  height: 900px;
+  position: fixed;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.tweet-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.image {
+}
+
+.name {
+  top: 0px;
+  position: relative;
+}
+
+.text {
+}

@@ -5,21 +5,14 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --start",
-    "run": "node --inspect server.js"
+    "server": "node --inspect server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
     "express": "^4.16.3",
     "socket.io": "^2.1.1",
-    "twitter": "^1.7.1",
-    "webpack": "^4.17.0",
-    "webpack-cli": "^3.1.0"
-  },
-  "devDependencies": {}
+    "twitter": "^1.7.1"
+  }
 }
