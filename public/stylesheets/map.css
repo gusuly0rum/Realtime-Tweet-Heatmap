@@ -1,0 +1,14 @@
+html, body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  color: white;
+  background-color: #03080b;
+  font-family: 'Roboto', sans-serif;
+}
+
+#map {
+  width: 100%;
+  height: 900px;
+  position: absolute;
+}

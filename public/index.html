@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Twitter Feed Heatmap</title>
+    <link rel="stylesheet" type="text/css" href="./stylesheets/map.css" />
+    <link rel="stylesheet" type="text/css" href="./stylesheets/navs.css" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjxb5NAE3EdCu0a3iSC4fkfuokW4veWAE" type="text/javascript"></script>
+  </head>
+
+  <body>
+    <div id="map"></div>
+    <div class="navs">
+      <div class="top-nav"></div>
+      <div class="left-nav"></div>
+      <div class="right-nav"></div>
+      <div class="bottom-nav"></div>
+    </div>
+    
+    <script src="./javascripts/style.js"></script>
+    <script src="./javascripts/map.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./javascripts/client.js" async defer></script>
+  </body>
+
+</html>
