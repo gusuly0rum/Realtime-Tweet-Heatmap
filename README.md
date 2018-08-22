@@ -23,7 +23,7 @@ Waiting for Twitter developer account application acceptance
 - [ ] Display data content (profile picture, tweet) on right navbar
 
 ## Wireframes
-![Login and Sign up](./wireframe.png)
+![Wireframe](./wiki/wireframe.png)
 
 
 ## Technologies

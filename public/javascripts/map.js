@@ -10,10 +10,10 @@ class Map {
     this.map = new window.google.maps.Map(mapElement, mapOptions);
   }
 
-  updateMarkers(coords) {
-    const markerOptions = { position: coords, map: this.map };
+  updateMarkers(data) {
+    const markerOptions = { position: data.coordinates, map: this.map };
     const marker = new window.google.maps.Marker(markerOptions);
-    this.markers[this.markers.length] = marker;
+    this.markers[data.id] = marker;
   }
 }
 

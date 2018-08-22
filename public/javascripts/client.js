@@ -8,6 +8,9 @@ socket.on('connection', function (sucessResponse) {
   socket.on('filteredData', function (filteredData) {
     console.log('client received data from server');
     console.log(filteredData);
-    window.map.updateMarkers(filteredData.coordinates);
+    window.map.updateMarkers(filteredData);
+    window.nav.updateLeft(filteredData);
+    window.nav.updateRight(filteredData);
+    window.nav.updateBottom(filteredData);
   });
 });
