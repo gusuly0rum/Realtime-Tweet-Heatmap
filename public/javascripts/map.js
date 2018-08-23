@@ -10,7 +10,7 @@ class Map {
       styles: window.style,
       disableDefaultUI: true,
       gestureHandling: 'none',
-      center: { lat: 20, lng: 150 }
+      center: { lat: 15, lng: 151 }
     };
     const mapElement = document.getElementById('map');
     this.map = new window.google.maps.Map(mapElement, mapOptions);

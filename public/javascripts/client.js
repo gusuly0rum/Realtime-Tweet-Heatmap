@@ -7,7 +7,6 @@ socket.on('connection', function(sucessResponse) {
 
   socket.on('filteredData', function(filteredData) {
     console.log('client received data from server');
-    console.log(filteredData);
     window.map.updateMarkers(filteredData);
     window.leftNav.updateIndex(filteredData);
     window.rightNav.updateIndex(filteredData);

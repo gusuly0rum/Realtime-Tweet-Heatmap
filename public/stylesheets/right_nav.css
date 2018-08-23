@@ -1,8 +1,34 @@
 #right-nav {
+  top: 0px;
   right: 0px;
   z-index: 1;
   width: 250px;
   height: 900px;
   position: fixed;
   background-color: rgba(0,0,0,0.7);
+}
+
+.header {
+  color: gold;
+  font-size: 17px;
+  padding-top: 20px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.tweet-item {
+  display: flex;
+  margin-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 20px;
+}
+
+.image {
+}
+
+.name {
+}
+
+.text {
 }

@@ -1,35 +1,40 @@
 class RightNav {
   constructor() {
-    this.indexItems = {};
+    this.rightNavElement = document.getElementById('right-nav');
   }
 
   updateIndex(data) {
-    this.indexItems[data.id] = {
-      text: data.text,
-      name: data.screen_name,
-      image: data.profile_image_url
-    };
-
-    const rightNavElement = document.getElementById('right-nav');
-    if (rightNavElement.childNodes.length === 5) {
-      rightNavElement.removeChild(rightNavElement.childNodes[0]);
+    if (this.rightNavElement.childNodes.length === 6) {
+      this.removeTweet();
+    } else {
+      this.appendTweet(data);
     }
+  }
 
+  removeTweet() {
+    const tweetIndexItem = this.rightNavElement.childNodes[1];
+    this.rightNavElement.removeChild(tweetIndexItem);
+  }
+
+  appendTweet(data) {
     const indexItem = document.createElement('div');
     const image = document.createElement('img');
     const name = document.createElement('div');
     const text = document.createElement('div');
+
     image.src = data.image;
     name.innerHTML = data.name;
     text.innerHTML = data.text;
+
     indexItem.className = 'tweet-item';
     image.className = 'image';
     name.className = 'name';
     text.className = 'text';
+
     indexItem.appendChild(image);
     indexItem.appendChild(name);
     indexItem.appendChild(text);
-    rightNavElement.appendChild(indexItem);
+    this.rightNavElement.appendChild(indexItem);
   }
 }
 

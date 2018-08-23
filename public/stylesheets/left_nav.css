@@ -6,18 +6,19 @@
   background-color: rgba(0,0,0,0.7);
 }
 
-.tweet-item {
+.header {
+  color: gold;
+  font-size: 17px;
+  padding-top: 20px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.country-item {
+  display: flex;
   margin-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
   margin-bottom: 10px;
-}
-
-.image {
-}
-
-.name {
-  top: 0px;
-  position: relative;
-}
-
-.text {
+  justify-content: space-between;
 }

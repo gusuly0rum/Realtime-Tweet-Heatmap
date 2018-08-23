@@ -45,13 +45,11 @@ io.sockets.on('connection', function(socket) {
 
     let count = 0;
     stream.on('data', function(data) {
-      console.log('server receiving data from twitter api');
+      console.log('server received data from twitter api');
       if (data.geo) {
         count++;
-        // console.log(filteredData);
-        // console.log(data);
         socket.emit('filteredData', filterData(data));
-        if (count === 5) {
+        if (count === 10) {
           stream.destroy();
           // process.exit(0);
         }
