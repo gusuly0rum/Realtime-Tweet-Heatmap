@@ -22,7 +22,8 @@ const twitter = new Twitter({
 function filterData(data) {
   const filteredData = {
     id: data.id,
-    text: data.text,
+    text: data.text.replace(/\shttps.*$/, ''),
+    city: data.place.full_name,
     name: data.user.screen_name,
     image: data.user.profile_image_url,
     country: data.place.country,
@@ -47,9 +48,10 @@ io.sockets.on('connection', function(socket) {
     stream.on('data', function(data) {
       console.log('server received data from twitter api');
       if (data.geo && data.place) {
+        console.log(data.place.full_name);
         count++;
         socket.emit('filteredData', filterData(data));
-        if (count === 3) {
+        if (count === 50) {
           stream.destroy();
           // process.exit(0);
         }

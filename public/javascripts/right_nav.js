@@ -12,7 +12,7 @@ class RightNav {
   }
 
   updateIndex(data) {
-    if (this.rightNavElement.childNodes.length === 6) {
+    if (this.container.childNodes.length === 5) {
       this.removeTweet();
     } else {
       this.appendTweet(data);
@@ -23,27 +23,38 @@ class RightNav {
   }
 
   removeTweet() {
-    const tweetIndexItem = this.container.childNodes[1];
+    const tweetIndexItem = this.container.childNodes[0];
     this.container.removeChild(tweetIndexItem);
   }
 
   appendTweet(data) {
     const indexItem = document.createElement('div');
+    const content = document.createElement('div');
+    const inform = document.createElement('div');
     const image = document.createElement('img');
     const name = document.createElement('div');
+    const city = document.createElement('div');
     const text = document.createElement('div');
 
     image.src = data.image;
     name.innerHTML = data.name;
-    text.innerHTML = data.text;
+    city.innerHTML = 'Unknown';
+    if (data.city) city.innerHTML = data.city;
+    text.innerHTML = `${data.text}`;
 
     indexItem.className = 'tweet-item';
+    content.className = 'content';
+    inform.className = 'inform';
     image.className = 'image';
     name.className = 'name';
+    city.className = 'city';
     text.className = 'text';
 
-    indexItem.appendChild(image);
-    indexItem.appendChild(name);
+    content.appendChild(image);
+    content.appendChild(inform);
+    inform.appendChild(name);
+    inform.appendChild(city);
+    indexItem.appendChild(content);
     indexItem.appendChild(text);
     this.container.appendChild(indexItem);
   }
