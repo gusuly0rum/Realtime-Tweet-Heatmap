@@ -8,16 +8,24 @@
   background-color: rgba(0,0,0,0.7);
 }
 
-.header {
+#right-nav .header {
   color: gold;
   font-size: 17px;
   padding-top: 20px;
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
+}
+
+.total {
+  font-size: 12px;
+  text-align: center;
+  padding-bottom: 20px;}
+
+#right-nav .container {
+  height: 650px;
 }
 
 .tweet-item {
-  margin-top: 10px;
   padding-left: 30px;
   padding-right: 30px;
   margin-bottom: 20px;
@@ -27,6 +35,7 @@
 }
 
 .name {
+  font-size: 
 }
 
 .text {

@@ -1,6 +1,14 @@
 class RightNav {
   constructor() {
+    this.total = 0;
     this.rightNavElement = document.getElementById('right-nav');
+    this.container = this.rightNavElement.getElementsByClassName('container')[0];
+    this.totalContainer = this.rightNavElement.getElementsByClassName('total')[0];
+    this.totalContainer.innerHTML = `Total: ${this.total}`;
+  }
+
+  updateTotal() {
+    this.totalContainer.innerHTML = `Total: ${this.total}`;
   }
 
   updateIndex(data) {
@@ -9,11 +17,14 @@ class RightNav {
     } else {
       this.appendTweet(data);
     }
+    this.total++;
+    this.updateTotal();
+    this.rightNavElement.appendChild(this.container);
   }
 
   removeTweet() {
-    const tweetIndexItem = this.rightNavElement.childNodes[1];
-    this.rightNavElement.removeChild(tweetIndexItem);
+    const tweetIndexItem = this.container.childNodes[1];
+    this.container.removeChild(tweetIndexItem);
   }
 
   appendTweet(data) {
@@ -34,7 +45,7 @@ class RightNav {
     indexItem.appendChild(image);
     indexItem.appendChild(name);
     indexItem.appendChild(text);
-    this.rightNavElement.appendChild(indexItem);
+    this.container.appendChild(indexItem);
   }
 }
 

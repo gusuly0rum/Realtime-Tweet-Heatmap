@@ -49,7 +49,7 @@ io.sockets.on('connection', function(socket) {
       if (data.geo && data.place) {
         count++;
         socket.emit('filteredData', filterData(data));
-        if (count === 50) {
+        if (count === 3) {
           stream.destroy();
           // process.exit(0);
         }

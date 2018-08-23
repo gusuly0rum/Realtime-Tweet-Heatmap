@@ -6,21 +6,31 @@
   background-color: rgba(0,0,0,0.7);
 }
 
-.header {
+#left-nav .header {
   color: gold;
   font-size: 17px;
   padding-top: 20px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.time {
+  font-size: 12px;
+  text-align: center;
+}
+
+.elapsed {
+  font-size: 12px;
   text-align: center;
   padding-bottom: 20px;
 }
 
 #left-nav .container {
-  height: 700px;
+  height: 610px;
 }
 
 .country-item {
   display: flex;
-  margin-top: 10px;
   padding-left: 30px;
   padding-right: 30px;
   margin-bottom: 10px;

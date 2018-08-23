@@ -4,6 +4,20 @@ class LeftNav {
     this.indexItems = {};
     this.leftNavElement = document.getElementById('left-nav');
     this.container = this.leftNavElement.getElementsByClassName('container')[0];
+    const timeContainer = this.leftNavElement.getElementsByClassName('time')[0];
+    const elapsedContainer = this.leftNavElement.getElementsByClassName('elapsed')[0];
+    timeContainer.innerHTML = `Since: ${this.visitTime()}`;
+    elapsedContainer.innerHTML = `Elapsed: 00:00:00`;
+  }
+
+  visitTime() {
+    const currentDate = new Date();
+    return currentDate.toLocaleTimeString();
+  }
+
+  elapsedTime() {
+    const currentDate = new Date();
+    return currentDate - this.visitTime();
   }
 
   updateIndex(data) {
@@ -11,7 +25,7 @@ class LeftNav {
     if (this.indexItems[countryName]) {
       this.handleOldCountry(countryName);
     } else {
-      if (Object.keys(this.indexItems).length === 22) this.removeLastChild();
+      if (Object.keys(this.indexItems).length === 20) this.removeMinCountry();
       this.handleNewCountry(countryName);
     }
     this.render();
@@ -45,9 +59,9 @@ class LeftNav {
     this.indexItems[countryName].nodeElement = indexItem;
   }
 
-  removeLastChild() {
+  removeMinCountry() {
     const minCountry = this.sortNames()[22];
-    delete this.container[minCountry];
+    delete this.indexItems[minCountry];
   }
 
   sortNames() {
