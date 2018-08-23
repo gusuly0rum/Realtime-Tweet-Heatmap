@@ -3,6 +3,7 @@ class LeftNav {
   constructor() {
     this.indexItems = {};
     this.leftNavElement = document.getElementById('left-nav');
+    this.container = this.leftNavElement.getElementsByClassName('container')[0];
   }
 
   updateIndex(data) {
@@ -10,6 +11,7 @@ class LeftNav {
     if (this.indexItems[countryName]) {
       this.handleOldCountry(countryName);
     } else {
+      if (Object.keys(this.indexItems).length === 22) this.removeLastChild();
       this.handleNewCountry(countryName);
     }
     this.render();
@@ -43,17 +45,23 @@ class LeftNav {
     this.indexItems[countryName].nodeElement = indexItem;
   }
 
+  removeLastChild() {
+    const minCountry = this.sortNames()[22];
+    delete this.container[minCountry];
+  }
+
   sortNames() {
     const countryNames = Object.keys(this.indexItems);
-    return countryNames.sort((elemA, elemB) => {
-      return this.indexItems[elemA].count < this.indexItems[elemB].count;
+    return countryNames.sort((countryA, countryB) => {
+      return this.indexItems[countryB].count - this.indexItems[countryA].count;
     });
   }
 
   render() {
     this.sortNames().forEach(country => {
-      this.leftNavElement.appendChild(this.indexItems[country].nodeElement);
+      this.container.appendChild(this.indexItems[country].nodeElement);
     });
+    this.leftNavElement.appendChild(this.container);
   }
 }
 
