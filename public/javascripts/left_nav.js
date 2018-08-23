@@ -12,17 +12,19 @@ class LeftNav {
     } else {
       this.handleNewCountry(countryName);
     }
+    this.render();
   }
 
   handleOldCountry(countryName) {
-    const tweetCount = ++this.indexItems[countryName];
+    const tweetCount = ++this.indexItems[countryName].count;
     const indexItem = document.getElementById(countryName);
     const count = indexItem.getElementsByClassName('count')[0];
     count.innerHTML = tweetCount;
+    this.indexItems[countryName].nodeElement = indexItem;
   }
 
   handleNewCountry(countryName) {
-    this.indexItems[countryName] = 1;
+    this.indexItems[countryName] = { count: 1, nodeElement: null };
 
     const indexItem = document.createElement('div');
     const country = document.createElement('div');
@@ -38,16 +40,21 @@ class LeftNav {
 
     indexItem.appendChild(country);
     indexItem.appendChild(count);
-    this.leftNavElement.appendChild(indexItem);
+    this.indexItems[countryName].nodeElement = indexItem;
+  }
+
+  sortNames() {
+    const countryNames = Object.keys(this.indexItems);
+    return countryNames.sort((elemA, elemB) => {
+      return this.indexItems[elemA].count < this.indexItems[elemB].count;
+    });
+  }
+
+  render() {
+    this.sortNames().forEach(country => {
+      this.leftNavElement.appendChild(this.indexItems[country].nodeElement);
+    });
   }
 }
 
 window.leftNav = new LeftNav();
-
-
-// const indexItems = {
-//   'USA': {
-//     count: 10,
-//     indexItem: <div></div>
-//   }
-// };
