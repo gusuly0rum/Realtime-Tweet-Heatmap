@@ -8,12 +8,23 @@ const server = app.listen(3000);
 app.use(Express.static('public'));
 const io = Socket(server);
 
-const twitter = new Twitter({
-  consumer_key: Key.CONSUMER_KEY,
-  consumer_secret: Key.CONSUMER_SECRET,
-  access_token_key: Key.ACCESS_TOKEN_KEY,
-  access_token_secret: Key.ACCESS_TOKEN_SECRET
-});
+let twitter;
+if (process.env.production_mode === 'on') {
+  twitter = new Twitter({
+    consumer_key: process.env.CONSUMER_KEY,
+    consumer_secret: process.env.CONSUMER_SECRET,
+    access_token_key: process.env.ACCESS_TOKEN_KEY,
+    access_token_secret: process.env.ACCESS_TOKEN_SECRET
+  });
+  } else {
+  twitter = new Twitter({
+    consumer_key: Key.CONSUMER_KEY,
+    consumer_secret: Key.CONSUMER_SECRET,
+    access_token_key: Key.ACCESS_TOKEN_KEY,
+    access_token_secret: Key.ACCESS_TOKEN_SECRET
+  });
+}
+
 
 function filterData(data) {
   let message = data.text.replace(/\shttps.*$/, '');
@@ -43,7 +54,6 @@ io.sockets.on('connection', function(socket) {
       stream.on('data', function(data) {
         if (data.geo && data.place) {
           socket.emit('filteredData', filterData(data));
-          // stream.destroy();
         }
       });
     });
