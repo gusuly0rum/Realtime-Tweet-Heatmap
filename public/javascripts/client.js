@@ -1,4 +1,5 @@
-window.socket = window.io.connect('http://localhost:3000');
+// window.socket = window.io.connect('http://localhost:3000');
+window.socket = window.io.connect('https://realtime-twitter-feed-heatmap.herokuapp.com/');
 
 window.socket.on('connection', function() {
   window.socket.emit('begin stream');
