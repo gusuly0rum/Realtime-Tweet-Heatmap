@@ -3,7 +3,7 @@
 ## Background and Overview
 The Twitter Feed Heatmap is a data visualization application that displays tweeting activity in realtime based on geolocation. Tweets around the world will be shown as a datapoint on a map.
 
-[REaltime Twitter Feed Heatmap](https://realtime-twitter-feed-heatmap.herokuapp.com/)
+[Realtime Twitter Feed Heatmap](https://realtime-twitter-feed-heatmap.herokuapp.com/)
 
 ![All](./wiki/all.png)
 
