@@ -1,4 +1,3 @@
-const Key = require('./key');
 const Twitter = require('twitter');
 const Express = require('express');
 const Socket = require('socket.io');
@@ -16,7 +15,8 @@ if (process.env.production_mode === 'on') {
     access_token_key: process.env.ACCESS_TOKEN_KEY,
     access_token_secret: process.env.ACCESS_TOKEN_SECRET
   });
-  } else {
+} else {
+  const Key = require('./config/key');
   twitter = new Twitter({
     consumer_key: Key.CONSUMER_KEY,
     consumer_secret: Key.CONSUMER_SECRET,
@@ -24,7 +24,6 @@ if (process.env.production_mode === 'on') {
     access_token_secret: Key.ACCESS_TOKEN_SECRET
   });
 }
-
 
 function filterData(data) {
   let message = data.text.replace(/\shttps.*$/, '');
