@@ -1,8 +1,8 @@
-if (process.env.production_mode === 'on') {
-  window.socket = window.io.connect('https://realtime-twitter-feed-heatmap.herokuapp.com/');
-} else {
-  window.socket = window.io.connect('http://localhost:3000');
-}
+// if (process.env.production_mode === 'on') {
+window.socket = window.io.connect('https://realtime-twitter-feed-heatmap.herokuapp.com/');
+// } else {
+//   window.socket = window.io.connect('http://localhost:3000');
+// }
 
 window.socket.on('connection', function() {
   window.socket.emit('begin stream');
