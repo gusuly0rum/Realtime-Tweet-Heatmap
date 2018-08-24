@@ -1,0 +1,22 @@
+form {
+  display: flex;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 18px;
+  flex-direction: column;
+}
+
+#search {
+  width: 170px;
+  height: 25px;
+  position: relative;
+  text-align: center;
+  border-style: none;
+  border-radius: 3px;
+  margin-bottom: 25px;
+}
+
+.button {
+  width: 150px;
+  height: 25px;
+}

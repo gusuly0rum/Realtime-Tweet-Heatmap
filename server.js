@@ -1,5 +1,3 @@
-// frontend -> server -> twitter (connections made by socket) (install socket on server and client)
-
 const Key = require('./key');
 const Twitter = require('twitter');
 const Express = require('express');
@@ -38,17 +36,16 @@ function filterData(data) {
 io.sockets.on('connection', function(socket) {
   socket.emit('connection');
 
-  socket.on('begin stream', function () {
-    let count = 0;
-    const area = { locations: '-180, -90, 180, 90' };
-    const stream = twitter.stream('/statuses/filter', area);
+  socket.on('begin stream', function() {
+    let search = { locations: '-180, -90, 180, 90' };
 
-    stream.on('data', function(data) {
-      if (data.geo && data.place) {
-        count++;
-        socket.emit('filteredData', filterData(data));
-        if (count === 1) stream.destroy();
-      }
+    twitter.stream('/statuses/filter', search, function(stream) {
+      stream.on('data', function(data) {
+        if (data.geo && data.place) {
+          socket.emit('filteredData', filterData(data));
+          // stream.destroy();
+        }
+      });
     });
   });
 });

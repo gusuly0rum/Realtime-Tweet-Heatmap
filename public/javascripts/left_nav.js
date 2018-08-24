@@ -10,11 +10,13 @@ class LeftNav {
   }
 
   visitTime() {
-    const currentDate = new Date();
-    return currentDate.toLocaleTimeString();
+    this.currentDate = new Date();
+    return this.currentDate.toLocaleTimeString();
   }
 
   elapsedTime() {
+    const currentDate = new Date();
+    return currentDate.getSeconds() - this.currentDate.getSeconds();
   }
 
   updateIndex(data) {
@@ -22,7 +24,6 @@ class LeftNav {
     if (this.indexItems[countryName]) {
       this.handleOldCountry(countryName);
     } else {
-      console.log(Object.keys(this.indexItems).length);
       if (Object.keys(this.indexItems).length === 17) this.removeMinCountry();
       this.handleNewCountry(countryName);
     }
@@ -77,7 +78,8 @@ class LeftNav {
   }
 
   render() {
-    this.sortNames().forEach(country => {
+    const sortedCountries = this.sortNames();
+    sortedCountries.forEach(country => {
       this.container.appendChild(this.indexItems[country].nodeElement);
     });
     this.leftNavElement.appendChild(this.container);

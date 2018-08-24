@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="./stylesheets/map.css" />
     <link rel="stylesheet" type="text/css" href="./stylesheets/navs.css" />
     <link rel="stylesheet" type="text/css" href="./stylesheets/logos.css" />
+    <link rel="stylesheet" type="text/css" href="./stylesheets/search.css" />
     <link rel="stylesheet" type="text/css" href="./stylesheets/left_nav.css" />
     <link rel="stylesheet" type="text/css" href="./stylesheets/right_nav.css" />
     <link rel="stylesheet" type="text/css" href="./stylesheets/bottom_nav.css" />
@@ -37,14 +38,17 @@
             <a href='https://github.com/gusuly0rum' target="_blank"><div class="github-logo"></div></a>
             <a href='https://www.linkedin.com/in/donguk-kim/' target="_blank"><div class="linkedin-logo"></div></a>
         </div>
-        <div class="header"></div>
-        <input type="text" />
+        <form>
+          <input id="search" type="text" placeholder="Search for tweets by keyword" />
+          <button id="filter-button" type="submit">Search for tweets</button>
+        </form>
         <canvas id="chart"></canvas>
       </div>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="./javascripts/style.js"></script>
+    <script src="./javascripts/search.js"></script>
     <script src="./javascripts/map.js"></script>
     <script src="./javascripts/chart.js"></script>
     <script src="./javascripts/left_nav.js"></script>
