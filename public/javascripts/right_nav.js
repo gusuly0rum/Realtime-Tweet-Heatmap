@@ -4,7 +4,7 @@ class RightNav {
     this.rightNavElement = document.getElementById('right-nav');
     this.container = this.rightNavElement.getElementsByClassName('container')[0];
     this.totalContainer = this.rightNavElement.getElementsByClassName('total')[0];
-    this.totalContainer.innerHTML = `Total: ${this.total}`;
+    this.totalContainer.innerHTML = 'Total: 0';
   }
 
   updateTotal() {
@@ -12,19 +12,15 @@ class RightNav {
   }
 
   updateIndex(data) {
-    if (this.container.childNodes.length === 5) {
-      this.removeTweet();
-    } else {
-      this.appendTweet(data);
-    }
     this.total++;
     this.updateTotal();
+    if (this.container.childNodes.length === 6) this.removeTweet();
+    this.appendTweet(data);
     this.rightNavElement.appendChild(this.container);
   }
 
   removeTweet() {
-    const tweetIndexItem = this.container.childNodes[0];
-    this.container.removeChild(tweetIndexItem);
+    this.container.removeChild(this.container.firstChild);
   }
 
   appendTweet(data) {
@@ -36,12 +32,6 @@ class RightNav {
     const city = document.createElement('div');
     const text = document.createElement('div');
 
-    image.src = data.image;
-    name.innerHTML = data.name;
-    city.innerHTML = 'Unknown';
-    if (data.city) city.innerHTML = data.city;
-    text.innerHTML = `${data.text}`;
-
     indexItem.className = 'tweet-item';
     content.className = 'content';
     inform.className = 'inform';
@@ -50,10 +40,15 @@ class RightNav {
     city.className = 'city';
     text.className = 'text';
 
-    content.appendChild(image);
-    content.appendChild(inform);
+    image.src = data.image;
+    name.innerHTML = data.name;
+    city.innerHTML = data.city ? data.city : 'Unknown';
+    text.innerHTML = data.text;
+
     inform.appendChild(name);
     inform.appendChild(city);
+    content.appendChild(image);
+    content.appendChild(inform);
     indexItem.appendChild(content);
     indexItem.appendChild(text);
     this.container.appendChild(indexItem);

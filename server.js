@@ -7,8 +7,6 @@ const Socket = require('socket.io');
 
 const app = Express();
 const server = app.listen(3000);
-console.log('server is running');
-
 app.use(Express.static('public'));
 const io = Socket(server);
 
@@ -20,43 +18,37 @@ const twitter = new Twitter({
 });
 
 function filterData(data) {
+  let message = data.text.replace(/\shttps.*$/, '');
+  if (data.extended_tweet) message = data.extended_tweet.full_text.replace(/\shttps.*$/, '');
   const filteredData = {
     id: data.id,
-    text: data.text.replace(/\shttps.*$/, ''),
+    text: message,
     city: data.place.full_name,
     name: data.user.screen_name,
     image: data.user.profile_image_url,
     country: data.place.country,
-    coordinates: {
-      lat: data.geo.coordinates[0],
-      lng: data.geo.coordinates[1]
-    }
+    coordinates: [
+      data.geo.coordinates[0],
+      data.geo.coordinates[1]
+    ]
   };
   return filteredData;
 }
 
 io.sockets.on('connection', function(socket) {
-  console.log(`socket installation on server-twitter success`);
   socket.emit('connection');
 
-  socket.on('begin stream', function() {
+  socket.on('begin stream', function () {
+    let count = 0;
     const area = { locations: '-180, -90, 180, 90' };
     const stream = twitter.stream('/statuses/filter', area);
-    console.log('twitter-server connection success');
 
-    let count = 0;
     stream.on('data', function(data) {
-      console.log('server received data from twitter api');
       if (data.geo && data.place) {
-        console.log(data.place.full_name);
         count++;
         socket.emit('filteredData', filterData(data));
-        if (count === 50) {
-          stream.destroy();
-          // process.exit(0);
-        }
+        if (count === 1) stream.destroy();
       }
     });
   });
-  socket.emit('client-server connection success');
 });
