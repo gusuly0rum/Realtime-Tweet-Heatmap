@@ -31,7 +31,7 @@ class Map {
         lng: data.coordinates[1]
       },
       map: this.map,
-      icon: '../stylesheet/twitter1.png'
+      icon: '../stylesheets/twitter.png'
     });
     setTimeout(() => flash.setMap(null), 500);
   }
