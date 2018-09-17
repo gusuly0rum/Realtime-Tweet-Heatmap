@@ -2,9 +2,10 @@
   top: 0px;
   right: 0px;
   z-index: 1;
-  width: 250px;
+  /* width: 250px; */
+  width: 25%;
   height: 900px;
-  position: fixed;
+  /* position: fixed; */
   background-color: rgba(0,0,0,0.7);
 }
 
@@ -19,7 +20,8 @@
 .total {
   font-size: 12px;
   text-align: center;
-  padding-bottom: 20px;}
+  padding-bottom: 20px;
+}
 
 #right-nav .container {
   height: 630px;

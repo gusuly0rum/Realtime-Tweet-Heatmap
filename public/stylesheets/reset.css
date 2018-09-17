@@ -1,0 +1,147 @@
+/* General */
+
+html, body {
+  margin: 0px;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  color: white;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+/* Map */
+
+#map {
+  width: inherit;
+  height: inherit;
+}
+
+/* Navs */
+
+.nav {
+  position: absolute;
+  background-color: rgba(0,0,0,0.7);
+}
+
+#left-nav {
+  top: 0px;
+  left: 0px;
+  width: 15%;
+  height: inherit;
+}
+
+#right-nav {
+  top: 0px;
+  right: 0px;
+  width: 15%;
+  height: inherit;
+}
+
+#bottom-nav {
+  left: 20%;
+  width: 60%;
+  height: 22%;
+  bottom: 0px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+
+.header {
+  color: gold;
+  font-size: 1vw;
+  padding-top: 2.3vh;
+  text-align: center;
+  padding-bottom: 1.2vh;
+}
+
+div[class$="-sub"] {
+  font-size: 0.7vw;
+  text-align: center;
+}
+
+/* Left Nav */
+
+.elapsed-sub {
+  padding-bottom: 2.3vh;
+}
+
+.total-sub {
+  padding-bottom: 2.3vh;
+}
+
+.container {
+  height: 70%;
+}
+
+.country-item {
+  display: flex;
+  font-size: 0.9vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  margin-bottom: 1.2vh;
+  justify-content: space-between;
+}
+
+/* Right Nav */
+
+.tweet-item {
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+  margin-bottom: 2vh;
+}
+
+.image {
+  padding-right: 0.7vw;
+  width: 3.5vw !important;
+  height: 5.5vh !important;
+}
+
+.content {
+  display: flex;
+  padding-bottom: 1vh;
+}
+
+.inform {
+  display: block;
+}
+
+.name {
+  color: green;
+  font-size: 0.7vw;
+  font-weight: bold;
+}
+
+.city {
+  font-size: 0.65vw;
+  font-weight: bold;
+}
+
+.text {
+  font-size: 0.6vw;
+}
+
+/* Bottom Nav */
+
+#logos {
+  width: 3.8vw;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+a[class$="-logo"] {
+  width: 3.8vw;
+  height: 4.8vh;
+  margin-top: 2vh;
+  margin-left: 1vw;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.github-logo {
+  background-image: url('https://camo.githubusercontent.com/e8b53b6a899da4a8b5509306e724974a7f8495fc/687474703a2f2f7777772e69636f6e6e696e6a612e636f6d2f66696c65732f3234312f3832352f3231312f726f756e642d636f6c6c61626f726174696f6e2d736f6369616c2d6769746875622d636f64652d636972636c652d6e6574776f726b2d69636f6e2e737667');
+}
+
+.linkedin-logo {
+  background-image: url('https://cdn.modernghana.com/images/content/p73wnb0nmh_likedin.jpg');
+}

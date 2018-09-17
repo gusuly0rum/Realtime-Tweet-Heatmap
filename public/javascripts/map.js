@@ -12,6 +12,7 @@ class Map {
       disableDefaultUI: true,
       center: { lat: 0, lng: 151 }
     };
+    this.initialize();
   }
 
   initialize() {
@@ -30,11 +31,10 @@ class Map {
         lng: data.coordinates[1]
       },
       map: this.map,
-      icon: '../stylesheets/twitter1.png'
+      icon: '../stylesheet/twitter1.png'
     });
     setTimeout(() => flash.setMap(null), 500);
   }
 }
 
 window.map = new Map();
-window.map.initialize();

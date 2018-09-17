@@ -3,13 +3,7 @@
 
   <head>
     <title>Twitter Feed Heatmap</title>
-    <link rel="stylesheet" type="text/css" href="./stylesheets/map.css" />
-    <link rel="stylesheet" type="text/css" href="./stylesheets/navs.css" />
-    <link rel="stylesheet" type="text/css" href="./stylesheets/logos.css" />
-    <link rel="stylesheet" type="text/css" href="./stylesheets/search.css" />
-    <link rel="stylesheet" type="text/css" href="./stylesheets/left_nav.css" />
-    <link rel="stylesheet" type="text/css" href="./stylesheets/right_nav.css" />
-    <link rel="stylesheet" type="text/css" href="./stylesheets/bottom_nav.css" />
+    <link rel="stylesheet" type="text/css" href="./stylesheets/reset.css" />
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjxb5NAE3EdCu0a3iSC4fkfuokW4veWAE&libraries=visualization"></script>
@@ -17,32 +11,24 @@
 
   <body>
     <div id="map"></div>
-    <div class="navs">
-      <div id="filter"></div>
 
-      <div id="left-nav">
-        <div class="header">Tweets by Country</div>
-        <div class="time"></div>
-        <div class="elapsed"></div>
-        <div class="container"></div>
-      </div>
+    <div id="left-nav" class="nav">
+      <div class="header">Tweets by Country</div>
+      <div class="time-sub"></div>
+      <div class="elapsed-sub"></div>
+      <div class="container"></div>
+    </div>
 
-      <div id="right-nav">
-        <div class="header">Realtime Tweet Feed</div>
-        <div class="total"></div>
-        <div class="container"></div>
-      </div>
+    <div id="right-nav" class="nav">
+      <div class="header">Realtime Tweet Feed</div>
+      <div class="total-sub"></div>
+      <div class="container"></div>
+    </div>
 
-      <div id="bottom-nav">
-        <div id="logos">
-            <a href='https://github.com/gusuly0rum' target="_blank"><div class="github-logo"></div></a>
-            <a href='https://www.linkedin.com/in/donguk-kim/' target="_blank"><div class="linkedin-logo"></div></a>
-        </div>
-        <!-- <form>
-          <input id="search" type="text" placeholder="Search for tweets by keyword" />
-          <button id="filter-button" type="submit">Search for tweets</button>
-        </form>
-        <canvas id="chart"></canvas> -->
+    <div id="bottom-nav" class="nav">
+      <div id="logos">
+        <a href='https://github.com/gusuly0rum'class="github-logo" target="_blank"></a>
+        <a href='https://www.linkedin.com/in/donguk-kim/'class="linkedin-logo" target="_blank"></a>
       </div>
     </div>
 
