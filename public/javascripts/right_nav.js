@@ -2,8 +2,8 @@ class RightNav {
   constructor() {
     this.total = 0;
     this.rightNavElement = document.getElementById('right-nav');
-    this.container = this.rightNavElement.getElementsByClassName('container')[0];
-    this.totalContainer = this.rightNavElement.getElementsByClassName('total')[0];
+    this.container = this.rightNavElement.querySelector('.container');
+    this.totalContainer = this.rightNavElement.querySelector('.total-sub');
     this.totalContainer.innerHTML = 'Total: 0';
   }
 

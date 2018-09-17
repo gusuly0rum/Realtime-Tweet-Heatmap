@@ -1,9 +1,10 @@
 #left-nav {
   top: 0px;
   z-index: 1;
-  width: 250px;
+  /* width: 250px; */
+  width: 25%;
   height: 900px;
-  position: fixed;
+  /* position: fixed; */
   background-color: rgba(0,0,0,0.7);
 }
 

@@ -2,9 +2,9 @@ class LeftNav {
   constructor() {
     this.indexItems = {};
     this.leftNavElement = document.getElementById('left-nav');
-    this.container = this.leftNavElement.getElementsByClassName('container')[0];
-    const timeContainer = this.leftNavElement.getElementsByClassName('time')[0];
-    const elapsedContainer = this.leftNavElement.getElementsByClassName('elapsed')[0];
+    this.container = this.leftNavElement.querySelector('.container');
+    const timeContainer = this.leftNavElement.querySelector('.time-sub');
+    const elapsedContainer = this.leftNavElement.querySelector('.elapsed-sub');
     timeContainer.innerHTML = `Since: ${this.visitTime()}`;
     elapsedContainer.innerHTML = `Elapsed: 00:00:00`;
   }
@@ -34,7 +34,7 @@ class LeftNav {
   handleOldCountry(countryName) {
     const tweetCount = ++this.indexItems[countryName].count;
     const indexItem = document.getElementById(countryName);
-    const count = indexItem.getElementsByClassName('count')[0];
+    const count = indexItem.querySelector('.count');
     count.innerHTML = tweetCount;
     this.indexItems[countryName].nodeElement = indexItem;
   }
