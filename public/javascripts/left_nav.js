@@ -37,6 +37,10 @@ class LeftNav {
     const count = indexItem.querySelector('.count');
     count.innerHTML = tweetCount;
     this.indexItems[countryName].nodeElement = indexItem;
+
+    if (countryName === window.clickedCountry) {
+      window.bottomNav.render(countryName);
+    }
   }
 
   handleNewCountry(countryName) {
@@ -46,8 +50,9 @@ class LeftNav {
     const country = document.createElement('div');
     const count = document.createElement('div');
     
-    country.addEventListener('click', (event) => {
-      window.bottomNav.render(event.target.innerText);
+    country.addEventListener('click', () => {
+      window.bottomNav.render(countryName);
+      window.clickedCountry = countryName;
     });
 
     indexItem.id = countryName;

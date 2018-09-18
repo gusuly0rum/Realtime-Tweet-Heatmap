@@ -35,10 +35,17 @@ function watsonData(response) {
   const filteredData = {};
 
   if (response) {
-    filteredData.sentiment = {
-      score: response.sentiment.document.score,
-      label: response.sentiment.document.label
-    };
+    if (response.sentiment) {
+      filteredData.sentiment = {
+        score: response.sentiment.document.score,
+        label: response.sentiment.document.label
+      };
+    } else {
+      filteredData.sentiment = {
+        score: null,
+        label: null
+      };
+    }
 
     if (response.emotion) {
       filteredData.emotion = {
