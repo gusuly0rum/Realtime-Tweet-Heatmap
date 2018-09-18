@@ -2,6 +2,8 @@ const Twitter = require('twitter');
 const Express = require('express');
 const Socket = require('socket.io');
 const Key = require('./config/key');
+const Filter = require('./helper/filter');
+const nluV1 = require('watson-developer-cloud/natural-language-understanding/v1');
 
 const app = Express();
 const server = app.listen(process.env.PORT || 3000);
@@ -15,23 +17,11 @@ const twitter = new Twitter({
   access_token_secret: process.env.ACCESS_TOKEN_SECRET || Key.ACCESS_TOKEN_SECRET
 });
 
-function filterData(data) {
-  let message = data.text.replace(/\shttps.*$/, '');
-  if (data.extended_tweet) message = data.extended_tweet.full_text.replace(/\shttps.*$/, '');
-  const filteredData = {
-    id: data.id,
-    text: message,
-    city: data.place.full_name,
-    name: data.user.screen_name,
-    image: data.user.profile_image_url,
-    country: data.place.country,
-    coordinates: [
-      data.geo.coordinates[0],
-      data.geo.coordinates[1]
-    ]
-  };
-  return filteredData;
-}
+const watson = new nluV1({
+  version: '2018-03-16',
+  username: process.env.USERNAME || Key.USERNAME,
+  password: process.env.PASSWORD || Key.PASSWORD
+});
 
 io.sockets.on('connection', function(socket) {
   socket.emit('connection');
@@ -42,9 +32,18 @@ io.sockets.on('connection', function(socket) {
     let count = 0;
     twitter.stream('/statuses/filter', search, function(stream) {
       stream.on('data', function(data) {
+
         if (data.geo && data.place) {
-          socket.emit('filteredData', filterData(data));
-          if (++count === 5) stream.destroy();
+          const tweetData = Filter.twitterData(data);
+          const parameters = Filter.watsonParameters(tweetData.text);
+
+          watson.analyze(parameters, function (_, response) {
+            const analyzedData = Filter.watsonData(response);
+            const filteredData = Object.assign({}, tweetData, analyzedData);
+            socket.emit('filteredData', filteredData);
+          });
+
+          if (++count === 1) stream.destroy();
         }
       });
     });

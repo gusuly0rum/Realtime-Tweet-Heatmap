@@ -25,7 +25,7 @@ class Map {
   updateMarkers(data) {
     const marker = new window.google.maps.LatLng(...data.coordinates);
     this.markers.data.push(marker);
-    let flash = new window.google.maps.Marker({
+    const flash = new window.google.maps.Marker({
       position: {
         lat: data.coordinates[0],
         lng: data.coordinates[1]

@@ -42,6 +42,7 @@ html, body {
   width: 60%;
   height: 22%;
   bottom: 0px;
+  display: flex;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
 }
@@ -122,7 +123,7 @@ div[class$="-sub"] {
 
 /* Bottom Nav */
 
-#logos {
+.logos {
   width: 3.8vw;
   display: inline-flex;
   flex-direction: column;
@@ -144,4 +145,16 @@ a[class$="-logo"] {
 
 .linkedin-logo {
   background-image: url('https://cdn.modernghana.com/images/content/p73wnb0nmh_likedin.jpg');
+}
+
+.stats {
+  text-align: center;
+  margin-left: 200px;
+}
+
+.analysis {
+  display: flex;
+  color: green;
+  text-align: left;
+  justify-content: space-around;
 }
