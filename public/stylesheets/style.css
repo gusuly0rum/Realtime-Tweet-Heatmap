@@ -147,14 +147,29 @@ a[class$="-logo"] {
   background-image: url('https://cdn.modernghana.com/images/content/p73wnb0nmh_likedin.jpg');
 }
 
+.about {
+  width: 30%;
+  margin-left: 10%;
+  text-align: left;
+  font-size: 0.7vw;
+  margin-top: -0.5%;
+}
+
+.link {
+  color: orange;
+}
+
 .stats {
+  width: 30%;
+  margin-left: 12%;
+  margin-top: -0.5%;
   text-align: center;
-  margin-left: 200px;
 }
 
 .analysis {
   display: flex;
   color: green;
   text-align: left;
+  font-size: 0.9vw;
   justify-content: space-around;
 }

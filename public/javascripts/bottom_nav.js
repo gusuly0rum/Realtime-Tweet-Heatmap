@@ -2,7 +2,7 @@ class BottomNav {
   constructor() {
     this.indexItems = {};
     this.bottomNavElement = document.getElementById('bottom-nav');
-    this.header = this.bottomNavElement.querySelector('.header');
+    this.header = this.bottomNavElement.querySelector('.stats').querySelector('.header');
     this.analysis = this.bottomNavElement.querySelector('.analysis');
   }
 
