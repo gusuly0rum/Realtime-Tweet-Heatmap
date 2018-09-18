@@ -36,13 +36,12 @@ io.sockets.on('connection', function(socket) {
         if (data.geo && data.place) {
           const tweetData = Filter.twitterData(data);
           const parameters = Filter.watsonParameters(tweetData.text);
-
-          watson.analyze(parameters, function (_, response) {
-            const analyzedData = Filter.watsonData(response);
-            const filteredData = Object.assign({}, tweetData, analyzedData);
+          // watson.analyze(parameters, function (_, response) {
+            // const analyzedData = Filter.watsonData(response);
+            // const filteredData = Object.assign({}, tweetData, analyzedData);
+            const filteredData = Object.assign({}, tweetData, {});
             socket.emit('filteredData', filteredData);
-          });
-
+          // });
           // if (++count === 1) stream.destroy();
         }
       });
