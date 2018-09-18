@@ -45,6 +45,10 @@ class LeftNav {
     const indexItem = document.createElement('div');
     const country = document.createElement('div');
     const count = document.createElement('div');
+    
+    country.addEventListener('click', (event) => {
+      window.bottomNav.render(event.target.innerText);
+    });
 
     indexItem.id = countryName;
     indexItem.className = 'country-item';
@@ -56,6 +60,9 @@ class LeftNav {
 
     indexItem.appendChild(country);
     indexItem.appendChild(count);
+
+
+    indexItem.style.cursor = 'pointer';
     this.indexItems[countryName].nodeElement = indexItem;
   }
 

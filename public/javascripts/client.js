@@ -5,7 +5,6 @@ socket.on('connection', function() {
   socket.emit('begin stream');
   
   socket.on('filteredData', function(filteredData) {
-    console.log(filteredData);
     window.map.updateMarkers(filteredData);
     window.leftNav.updateIndex(filteredData);
     window.rightNav.updateIndex(filteredData);

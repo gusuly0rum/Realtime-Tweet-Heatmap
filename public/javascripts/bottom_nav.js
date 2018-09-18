@@ -13,7 +13,6 @@ class BottomNav {
     } else {
       this.handleNewCountry(countryName, data);
     }
-    this.render(countryName);
   }
 
   handleOldCountry(countryName, data) {

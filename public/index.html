@@ -6,12 +6,21 @@
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" type="text/css" href="./stylesheets/style.css" />
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjxb5NAE3EdCu0a3iSC4fkfuokW4veWAE&libraries=visualization"></script>
   </head>
 
   <body>
     <div id="map"></div>
+
+    <div id="modal">
+      <div class="close">x</div>
+      <div class="instructions">
+        Click on the countries in the left!<br />
+        Some languages aren't supported<br />
+        for sentiment analysis, so you<br />
+        may not see any effect.<br />
+      </div>
+    </div>
 
     <div id="left-nav" class="nav">
       <div class="header">Tweets by Country</div>
@@ -51,7 +60,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <script src="./javascripts/style.js"></script>
     <script src="./javascripts/map.js"></script>
-    <script src="./javascripts/chart.js"></script>
+    <script src="./javascripts/modal.js"></script>
     <script src="./javascripts/left_nav.js"></script>
     <script src="./javascripts/right_nav.js"></script>
     <script src="./javascripts/bottom_nav.js"></script>

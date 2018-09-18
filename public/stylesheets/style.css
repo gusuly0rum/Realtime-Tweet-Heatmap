@@ -173,3 +173,26 @@ a[class$="-logo"] {
   font-size: 0.9vw;
   justify-content: space-around;
 }
+
+#modal {
+  top: 50px;
+  left: 300px;
+  display: flex;
+  font-size: 0.7vw;
+  position: absolute;
+  flex-direction: column;
+  background-color: rgba(0,100,0,0.7);
+}
+
+.close {
+  font-size: 1vw;
+  cursor: pointer;
+  padding-left: 5%;
+}
+
+.instructions {
+  padding-top: 2%;
+  padding-left: 0.7vw;
+  padding-right: 0.7vw;
+  padding-bottom: 0.7vw;
+}
