@@ -4,9 +4,9 @@ class LeftNav {
     this.leftNavElement = document.getElementById('left-nav');
     this.container = this.leftNavElement.querySelector('.container');
     const timeContainer = this.leftNavElement.querySelector('.time-sub');
-    const elapsedContainer = this.leftNavElement.querySelector('.elapsed-sub');
+    this.elapsedContainer = this.leftNavElement.querySelector('.elapsed-sub');
     timeContainer.innerHTML = `Since: ${this.visitTime()}`;
-    elapsedContainer.innerHTML = `Elapsed: 00:00:00`;
+    this.elapsedContainer.innerHTML = `Elapsed: 00:00:00`;
   }
 
   visitTime() {
@@ -15,6 +15,7 @@ class LeftNav {
   }
 
   elapsedTime() {
+    // this.elapsedContainer.innerHTML = `Elapsed: ${window.clock.display()}`;
   }
 
   updateIndex(data) {
@@ -25,6 +26,7 @@ class LeftNav {
       if (Object.keys(this.indexItems).length === 17) this.removeMinCountry();
       this.handleNewCountry(countryName);
     }
+    this.elapsedTime();
     this.render();
   }
 
