@@ -13,11 +13,7 @@ class LeftNav {
     this.currentDate = new Date();
     return this.currentDate.toLocaleTimeString();
   }
-
-  elapsedTime() {
-    // this.elapsedContainer.innerHTML = `Elapsed: ${window.clock.display()}`;
-  }
-
+  
   updateIndex(data) {
     const countryName = data.country;
     if (this.indexItems[countryName]) {
@@ -26,7 +22,6 @@ class LeftNav {
       if (Object.keys(this.indexItems).length === 17) this.removeMinCountry();
       this.handleNewCountry(countryName);
     }
-    this.elapsedTime();
     this.render();
   }
 
