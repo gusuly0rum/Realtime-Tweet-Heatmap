@@ -15,8 +15,6 @@ class LeftNav {
   }
 
   elapsedTime() {
-    const currentDate = new Date();
-    return currentDate.getSeconds() - this.currentDate.getSeconds();
   }
 
   updateIndex(data) {
@@ -27,7 +25,6 @@ class LeftNav {
       if (Object.keys(this.indexItems).length === 17) this.removeMinCountry();
       this.handleNewCountry(countryName);
     }
-    this.removeIndexItems();
     this.render();
   }
 
@@ -65,8 +62,6 @@ class LeftNav {
 
     indexItem.appendChild(country);
     indexItem.appendChild(count);
-
-
     indexItem.style.cursor = 'pointer';
     this.indexItems[countryName].nodeElement = indexItem;
   }
@@ -83,15 +78,9 @@ class LeftNav {
     });
   }
 
-  removeIndexItems() {
-    while (this.container.hasChildNodes()) {
-      this.container.removeChild(this.container.firstChild);
-    }
-  }
-
   render() {
-    const sortedCountries = this.sortNames();
-    sortedCountries.forEach(country => {
+    this.container.innerHTML = null;
+    this.sortNames().forEach(country => {
       this.container.appendChild(this.indexItems[country].nodeElement);
     });
     this.leftNavElement.appendChild(this.container);

@@ -6,12 +6,14 @@ class Map {
       gradient: window.gradient,
       data: new window.google.maps.MVCArray()
     };
+
     this.mapOptions = {
       zoom: 2.2,
       styles: window.style,
       disableDefaultUI: true,
       center: { lat: 0, lng: 151 }
     };
+    
     this.initialize();
   }
 
