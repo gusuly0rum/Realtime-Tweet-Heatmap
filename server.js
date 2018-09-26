@@ -29,7 +29,7 @@ io.sockets.on('connection', function(socket) {
   socket.on('begin stream', function() {
     const search = { locations: '-180, -90, 180, 90' };
 
-    // let count = 0;
+    let count = 0;
     twitter.stream('/statuses/filter', search, function(stream) {
       stream.on('data', function(data) {
 
@@ -42,7 +42,7 @@ io.sockets.on('connection', function(socket) {
             const filteredData = Object.assign({}, tweetData, {});
             socket.emit('filteredData', filteredData);
           // });
-          // if (++count === 1) stream.destroy();
+          if (++count === 100) stream.destroy();
         }
       });
     });
