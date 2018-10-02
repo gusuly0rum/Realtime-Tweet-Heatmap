@@ -1,75 +1,40 @@
-# Twitter Feed Heatmap
-
-## Background and Overview
-The Twitter Feed Heatmap is a data visualization application that displays tweeting activity in realtime based on geolocation. Tweets around the world will be shown as a datapoint on a map.
-
-
-## Work Done During the Weekend
-Explored possible websites such as:
-* GitHub (public feed API service has no location data)
-* Twitter (public feed API service has no restrictions)
-* Facebook (public feed API service requires approval by Facebook)
-* Instagram (public feed API service to be deprecated in December 2018)
-
-Waiting for Twitter developer account application acceptance
+## Tweet Feed
+The realtime tweets from people around the globe is shown along with the profile picture, username, location and tweet content. The tweet content in it's raw json value form contained information such as the original link. However, this was removed by using a regular expression.
+```
+const message = data.text.replace(/\shttps.*$/, '');
+```
+![Right](./wiki/right.png)
 
 
-## MVPs
-- [ ] Display Google maps
-- [ ] Display datapoint on map
-- [ ] Display Twitter and LinkedIn links on top navbar
-- [ ] Display ordered tweet count by country on left navbar
-- [ ] Display total per month as a graph on bottom navbar
-- [ ] Display data content (profile picture, tweet) on right navbar
-
-## Wireframes
-![Wireframe](./wiki/wireframe.png)
-
-
-## Technologies
-* Vanilla JS (Application logic)
-* D3 Library (Data visualization)
-* Twitter API (Data API requests)
-* Google Maps API (Map visualization)
+## Tweets by Country Statistics
+The number of tweets by country since visiting the website is shown. The tweet count per country is also ranked using a fast sorting algorithm by manipulating the DOM nodes.
+```
+render() {
+  const sortedCountries = this.sortNames();
+  sortedCountries.forEach(country => {
+    this.container.appendChild(this.indexItems[country].nodeElement);
+  });
+  this.leftNavElement.appendChild(this.container);
+}
+```
+![Left](./wiki/left.png)
 
 
-## File Structure
-`map.js`  
-`main.js`  
-`index.html`  
-`marker_manager.js`
-
-
-## Implementation Timeline
-### Weekend
-- [ ] Investigate feasibility
-- [ ] Complete project proposal
-- [ ] Apply for Twitter developer account
-
-### Day 1 - Monday
-- [ ] Complete environment setup
-- [ ] Setup folder structure (entry file, classes and index.html)
-- [ ] Setup Google maps component on index.html
-- [ ] Be able to render data points on the map
-- [ ] Complete Twitter API tutorials
-- [ ] Establish access to the Twitter API  
-- [ ] Perform successful API request to Twitter DB
-
-### Day 2 - Tuesday
-- [ ] Complete data rendering of tweets based on longitude / latitude
-
-### Day 3 - Wednesday
-- [ ] Complete left navbar (tweet counts by country)
-- [ ] Complete right navbar (tweet content by tweet)
-- [ ] Complete bottom navbar (tweet counts by month)
-
-### Day 4 - Thursday
-- [ ] Complete styling of map
-- [ ] Complete styling of left navbar
-- [ ] Complete styling of right navbar
-- [ ] Complete styling of bottom navbar
-
-
-## Bonus Features
-* Filter tweets by category
-* Filter tweets by keyword
+## Heatmap of Tweeting Activity
+The realtime tweets received from the Twitter API were rendered as datapoints on the Google Maps API updating the map. Two different datapoints were used: (i) one showing the accumulation of all tweets and (ii) another one showing the current tweets (installed a expiration date to disappear after a certain time).
+```
+updateMarkers(data) {
+  const marker = new window.google.maps.LatLng(...data.coordinates);
+  this.markers.data.push(marker);
+  let flash = new window.google.maps.Marker({
+    position: {
+      lat: data.coordinates[0],
+      lng: data.coordinates[1]
+    },
+    map: this.map,
+    icon: '../stylesheets/twitter1.png'
+  });
+  setTimeout(() => flash.setMap(null), 500);
+}
+```
+![Map](./wiki/map.png)
