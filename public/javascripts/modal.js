@@ -1,7 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const close = document.querySelector('.close');
-  const modal = document.getElementById('modal');
-  close.addEventListener('click', () => {
-    modal.style.display = 'none';
+  const modalLeft = document.getElementById('modal-left');
+  const closeLeft = modalLeft.querySelector('.close');
+  closeLeft.addEventListener('click', () => {
+    modalLeft.style.display = 'none';
+  });
+  
+  const modalRight = document.getElementById('modal-right');
+  const closeRight = modalRight.querySelector('.close');
+  closeRight.addEventListener('click', () => {
+    modalRight.style.display = 'none';
   });
 });

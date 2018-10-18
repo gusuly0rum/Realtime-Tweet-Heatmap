@@ -42,7 +42,7 @@ io.sockets.on('connection', function(socket) {
             const filteredData = Object.assign({}, tweetData, {});
             socket.emit('filteredData', filteredData);
           // });
-          if (++count === 100) stream.destroy();
+          if (++count === 3) stream.destroy();
         }
       });
     });

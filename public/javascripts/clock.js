@@ -1,6 +1,6 @@
 class Clock {
   constructor() {
-    const currentTime = new Date('November 12, 1992 00:00:00');
+    const currentTime = new Date('November 12, 2018 00:00:00');
     this.hour = currentTime.getHours();
     this.mins = currentTime.getMinutes();
     this.secs = currentTime.getSeconds();

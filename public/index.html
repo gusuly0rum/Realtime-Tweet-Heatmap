@@ -5,6 +5,7 @@
     <title>Twitter Feed Heatmap</title>
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" type="text/css" href="./stylesheets/style.css" />
+    <link rel="shortcut icon" type="image/png" href="./stylesheets/twitter.png" />
     <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126573748-1"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjxb5NAE3EdCu0a3iSC4fkfuokW4veWAE&libraries=visualization"></script>
@@ -14,13 +15,22 @@
   <body>
     <div id="map"></div>
 
-    <div id="modal">
+    <div id="modal-left">
       <div class="close">x</div>
       <div class="instructions">
         Click on the countries in the left!<br />
         Some languages aren't supported<br />
         for sentiment analysis, so you<br />
         may not see any effect.<br />
+      </div>
+    </div>
+
+    <div id="modal-right">
+      <div class="close">x</div>
+      <div class="instructions">
+        A limit of 100 tweets is set.<br />
+        In order to stream more tweets<br />
+        refresh the page<br />
       </div>
     </div>
 
@@ -50,7 +60,7 @@
         It uses the Twitter, Google Maps and IBM Watson APIs to
         stream live tweets around the globe and perform sentiment
         analysis using the contents of the tweets.
-        <span class="link">Click on the icons to the left to find out more about me!</span>
+        <span class="link">Click on the icons to the left to find out more about the developer</span>
       </div>
 
       <div class="stats">

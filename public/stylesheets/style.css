@@ -1,5 +1,4 @@
 /* General */
-
 html, body {
   margin: 0px;
   width: 100%;
@@ -10,14 +9,12 @@ html, body {
 }
 
 /* Map */
-
 #map {
   width: 100vw;
   height: 100vh;
 }
 
 /* Navs */
-
 .nav {
   position: absolute;
   background-color: rgba(0,0,0,0.7);
@@ -61,7 +58,6 @@ div[class$="-sub"] {
 }
 
 /* Left Nav */
-
 .elapsed-sub {
   padding-bottom: 2.3vh;
 }
@@ -84,7 +80,6 @@ div[class$="-sub"] {
 }
 
 /* Right Nav */
-
 .tweet-item {
   padding-left: 1.5vw;
   padding-right: 1.5vw;
@@ -122,7 +117,6 @@ div[class$="-sub"] {
 }
 
 /* Bottom Nav */
-
 .logos {
   width: 3.8vw;
   display: inline-flex;
@@ -139,12 +133,12 @@ a[class$="-logo"] {
   background-repeat: no-repeat;
 }
 
-.github-logo {
-  background-image: url('https://camo.githubusercontent.com/e8b53b6a899da4a8b5509306e724974a7f8495fc/687474703a2f2f7777772e69636f6e6e696e6a612e636f6d2f66696c65732f3234312f3832352f3231312f726f756e642d636f6c6c61626f726174696f6e2d736f6369616c2d6769746875622d636f64652d636972636c652d6e6574776f726b2d69636f6e2e737667');
-}
-
 .linkedin-logo {
   background-image: url('https://cdn.modernghana.com/images/content/p73wnb0nmh_likedin.jpg');
+}
+
+.github-logo {
+  background-image: url('https://camo.githubusercontent.com/e8b53b6a899da4a8b5509306e724974a7f8495fc/687474703a2f2f7777772e69636f6e6e696e6a612e636f6d2f66696c65732f3234312f3832352f3231312f726f756e642d636f6c6c61626f726174696f6e2d736f6369616c2d6769746875622d636f64652d636972636c652d6e6574776f726b2d69636f6e2e737667');
 }
 
 .about {
@@ -174,14 +168,21 @@ a[class$="-logo"] {
   justify-content: space-around;
 }
 
-#modal {
+div[id^="modal"] {
   top: 50px;
-  left: 300px;
   display: flex;
   font-size: 0.7vw;
   position: absolute;
   flex-direction: column;
   background-color: rgba(0,100,0,0.7);
+}
+
+#modal-left {
+  left: 300px;
+}
+
+#modal-right {
+  right: 300px;
 }
 
 .close {
