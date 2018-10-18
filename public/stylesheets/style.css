@@ -186,6 +186,7 @@ div[id^="modal"] {
 }
 
 .close {
+  color: black;
   font-size: 1vw;
   cursor: pointer;
   padding-left: 5%;
