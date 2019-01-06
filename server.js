@@ -6,7 +6,7 @@ const Filter = require('./helper/filter');
 const nluV1 = require('watson-developer-cloud/natural-language-understanding/v1');
 
 const app = Express();
-const server = app.listen(process.env.PORT || 3000);
+const server = app.listen(process.env.PORT || 8000);
 app.use(Express.static('public'));
 const io = Socket(server);
 
@@ -42,7 +42,7 @@ io.sockets.on('connection', function(socket) {
             const filteredData = Object.assign({}, tweetData, {});
             socket.emit('filteredData', filteredData);
           // });
-          if (++count === 3) stream.destroy();
+          if (++count === 100) stream.destroy();
         }
       });
     });
