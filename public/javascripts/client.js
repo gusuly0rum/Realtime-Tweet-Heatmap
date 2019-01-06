@@ -8,6 +8,6 @@ socket.on('connection', function() {
     window.map.updateMarkers(filteredData);
     window.leftNav.updateIndex(filteredData);
     window.rightNav.updateIndex(filteredData);
-    window.bottomNav.updateIndex(filteredData);
+    // window.bottomNav.updateIndex(filteredData);
   });
 });
