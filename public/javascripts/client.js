@@ -1,5 +1,5 @@
-const socket = window.io.connect('http://localhost:8000');
-// const socket = window.io.connect('https://realtime-twitter-feed-heatmap.herokuapp.com/');
+// const socket = window.io.connect('http://localhost:8000');
+const socket = window.io.connect('https://realtime-twitter-feed-heatmap.herokuapp.com/');
 
 socket.on('connection', function() {
   socket.emit('begin stream');
